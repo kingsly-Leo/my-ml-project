@@ -35,6 +35,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/my-ml-project:latest
-            ghcr.io/${{ github.repository_owner }}/my-ml-project:${{ github.sha }}
+            ghcr.io/${{ toLower(github.repository) }}:latest
+            ghcr.io/${{ toLower(github.repository) }}:${{ github.sha }}
           file: ./Dockerfile
+
