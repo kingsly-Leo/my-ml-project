@@ -6,3 +6,4 @@ joblib
 imbalanced-learn
 pandas
 gunicorn
+scikit-learn==1.6.1
