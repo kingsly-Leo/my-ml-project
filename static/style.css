@@ -1,0 +1,97 @@
+/* Custom Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full Page Black Background */
+body {
+    font-family: "Poppins", sans-serif;
+    background: #000000 !important;  /* Pure black background */
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centered Container */
+.container {
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Form Card */
+.card {
+    background: #1e1e1e; /* Dark gray for contrast */
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1); /* Soft white glow */
+    transition: 0.3s ease-in-out;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Form Labels */
+label {
+    color: #f1f1f1; /* Light gray for readability */
+    font-weight: bold;
+}
+
+/* Input Fields */
+input, select {
+    background: #222;
+    color: white;
+    border: 1px solid #555;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+/* Input Focus Effect */
+input:focus, select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Button */
+.btn-primary {
+    background: #007bff;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button Hover Effect */
+.btn-primary:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Alert Styling */
+.alert-info {
+    background: #1e1e1e;
+    border: 1px solid #007bff;
+    color: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}

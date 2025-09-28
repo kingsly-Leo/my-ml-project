@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Passenger Referral Prediction</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card shadow p-4">
+            <h2 class="text-center mb-4">Airline passenger Referral Prediction</h2>
+            <form action="/predict" method="POST">
+                
+                <div class="mb-3">
+                    <label class="form-label">Airline:</label>
+                    <select class="form-select" name="airline">
+                        <option value="Delta Air Lines">Delta Air Lines</option>
+                        <option value="American Airlines">American Airlines</option>
+                        <option value="United Airlines">United Airlines</option>
+                        <option value="Turkish Airlines">Turkish Airlines</option>
+                        <option value="Qatar Airways">Qatar Airways</option>
+                        <option value="Emirates">Emirates</option>
+                        <option value="Lufthansa">Lufthansa</option>
+                        <option value="KLM Royal Dutch Airlines">KLM Royal Dutch Airlines</option>
+                        <option value="Virgin America">Virgin America</option>
+                        <option value="Southwest Airlines">Southwest Airlines</option>
+                        <option value="AirAsia">AirAsia</option>
+                        <option value="Asiana Airlines">Asiana Airlines</option>
+                        <option value="Austrian Airlines">Austrian Airlines</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Traveller Type:</label>
+                    <select class="form-select" name="traveller_type">
+                        <option value="Business">Business</option>
+                        <option value="Leisure">Leisure</option>
+                        <option value="Family">Family</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Cabin:</label>
+                    <select class="form-select" name="cabin">
+                        <option value="Economy">Economy</option>
+                        <option value="Business">Business</option>
+                        <option value="First Class">First Class</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Seat Comfort (1-5):</label>
+                    <input type="number" class="form-control" name="seat_comfort" min="1" max="5">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Cabin Service (1-5):</label>
+                    <input type="number" class="form-control" name="cabin_service" min="1" max="5">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Food & Beverage (1-5):</label>
+                    <input type="number" class="form-control" name="food_bev" min="1" max="5">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Entertainment (1-5):</label>
+                    <input type="number" class="form-control" name="entertainment" min="1" max="5">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Value for Money (1-5):</label>
+                    <input type="number" class="form-control" name="value_for_money" min="1" max="5">
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Predict</button>
+            </form>
+
+            {% if prediction %}
+            <div class="alert alert-info mt-3">
+                <h4>Prediction: {{ prediction }}</h4>
+                <p>Confidence: {{ probability }}%</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
