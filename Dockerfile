@@ -1,38 +1,12 @@
-# Use small, official Python image
-FROM python:3.10-slim
+FROM python:3.6
 
-ENV DEBIAN_FRONTEND=noninteractive
+RUN pip install flask
 
-# Install minimal system deps
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    gcc \
- && rm -rf /var/lib/apt/lists/*
+COPY . /opt/
 
-# Create app directory
-WORKDIR /app
+EXPOSE 8000
 
-# Copy requirements first for caching
-COPY requirements.txt .
+WORKDIR /opt
 
-# Upgrade pip and install dependencies
-RUN python -m pip install --upgrade pip \
- && pip install --no-cache-dir -r requirements.txt
-
-# Copy project files
-COPY . .
-
-# Expose port used by Flask
-EXPOSE 5000
-
-# Use non-root user
-RUN useradd --create-home appuser
-USER appuser
-WORKDIR /home/appuser
-
-# Copy files for runtime (ownership)
-COPY --chown=appuser:appuser . .
-
-# Start the Flask app
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+ENTRYPOINT ["python", "app.py"]
 
